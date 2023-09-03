@@ -5,7 +5,7 @@ class Player:
 
     def __init__(self, uid: str, name: str):
         """
-        Initializes the Player with the given uid and name.
+        Initialises the Player with the given uid and name.
         """
         self._uid = uid
         self._name = name
