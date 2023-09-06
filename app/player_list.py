@@ -11,3 +11,24 @@ class PlayerList:
         Initialise an empty list with the head pointing to None.
         """
         self.head = None
+
+    def is_empty(self):
+        """
+        Checks if the list is empty.
+
+        :return: True if empty, False otherwise.
+        """
+        return self.head is None
+
+    def insert_at_head(self, new_node):
+        """
+        Inserts a new node at the head of the list.
+
+        :param new_node: The new PlayerNode to insert.
+        """
+        if self.is_empty():
+            self.head = new_node
+        else:
+            new_node._next = self.head  # Point the new node's next to the current head
+            self.head._prev = new_node  # Point the current head's previous to the new node
+            self.head = new_node  # Update the head to point to the new node
