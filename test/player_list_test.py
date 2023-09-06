@@ -75,3 +75,31 @@ class TestPlayerList(unittest.TestCase):
         self.assertEqual(node2.prev_node, node1)
         self.assertIsNone(node1.prev_node)
         self.assertIsNone(node2.next_node)
+
+    def test_delete_from_head(self):
+        """
+        Test deleting a node from the head of the list.
+        """
+        player_list = PlayerList()
+        player1 = Player("1", "Alex")
+        node1 = PlayerNode(player1)
+        player_list.insert_at_head(node1)
+
+        player_list.delete_from_head()
+
+        self.assertIsNone(player_list.head)
+        self.assertIsNone(player_list.tail)
+
+    def test_delete_from_tail(self):
+        """
+        Test deleting a node from the tail of the list.
+        """
+        player_list = PlayerList()
+        player1 = Player("1", "Alex")
+        node1 = PlayerNode(player1)
+        player_list.insert_at_head(node1)
+
+        player_list.delete_from_tail()
+
+        self.assertIsNone(player_list.head)
+        self.assertIsNone(player_list.tail)
