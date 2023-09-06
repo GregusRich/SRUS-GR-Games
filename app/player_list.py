@@ -11,6 +11,8 @@ class PlayerList:
         Initialise an empty list with the head pointing to None.
         """
         self.head = None
+        self.tail = None
+
 
     def is_empty(self):
         """
@@ -28,6 +30,7 @@ class PlayerList:
         """
         if self.is_empty():
             self.head = new_node
+            self.tail = new_node # The first node is both the head and the tail
         else:
             new_node._next = self.head  # Point the new node's next to the current head
             self.head._prev = new_node  # Point the current head's previous to the new node

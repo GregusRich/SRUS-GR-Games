@@ -16,6 +16,7 @@ class TestPlayerList(unittest.TestCase):
         player_list.insert_at_head(node)
 
         self.assertEqual(player_list.head, node)
+        self.assertEqual(player_list.tail, node)
         self.assertIsNone(node.prev_node)
         self.assertIsNone(node.next_node)
 
@@ -34,6 +35,7 @@ class TestPlayerList(unittest.TestCase):
         player_list.insert_at_head(node2)
 
         self.assertEqual(player_list.head, node2)
+        self.assertEqual(player_list.tail, node1)
         self.assertEqual(node2.next_node, node1)
         self.assertEqual(node1.prev_node, node2)
         self.assertIsNone(node2.prev_node)
