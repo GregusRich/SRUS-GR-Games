@@ -103,3 +103,24 @@ class TestPlayerList(unittest.TestCase):
 
         self.assertIsNone(player_list.head)
         self.assertIsNone(player_list.tail)
+
+    def test_delete_by_key(self):
+        """
+        Test deleting a node from the list based on its key.
+        """
+        player_list = PlayerList()
+
+        # Adding nodes to the list
+        player1 = Player("1", "Alex")
+        node1 = PlayerNode(player1)
+        player_list.insert_at_head(node1)
+
+        player2 = Player("2", "Bob")
+        node2 = PlayerNode(player2)
+        player_list.insert_at_head(node2)
+
+        # Deleting node with key "1"
+        result = player_list.delete_by_key("1")
+        self.assertTrue(result)
+        self.assertEqual(player_list.head.key, "2")
+        self.assertIsNone(player_list.head.prev_node)

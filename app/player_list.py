@@ -73,3 +73,27 @@ class PlayerList:
         else:
             self.tail = self.tail._prev  # Move tail pointer to the previous node
             self.tail._next = None  # Update the new tail's next pointer to None
+
+    def delete_by_key(self, key):
+        """
+        Deletes a node from the list based on its key.
+
+        :param key: The key of the node to delete.
+        """
+        current = self.head
+        while current:
+            if current.key == key:
+                # Node found, now delete it
+                if current._prev:
+                    current._prev._next = current._next
+                else:
+                    self.head = current._next
+
+                if current._next:
+                    current._next._prev = current._prev
+                else:
+                    self.tail = current._prev
+
+                return True  # Node deleted successfully
+            current = current._next
+        return False  # Node with the given key not found
