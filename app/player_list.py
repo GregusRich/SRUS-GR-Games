@@ -97,3 +97,27 @@ class PlayerList:
                 return True  # Node deleted successfully
             current = current._next
         return False  # Node with the given key not found
+
+    def display(self, forward = True):
+        """
+        Displays the linked list from head to tail if forward=True,
+        or from tail to head if forward=False.
+
+        :param forward: Boolean value to determine the direction of traversal.
+        """
+        if self.is_empty():
+            print("The list is empty.")
+            return
+
+        if forward:
+            current = self.head
+            print("Displaying list from head to tail:")
+            while current:
+                print(current)
+                current = current._next
+        else:
+            current = self.tail
+            print("Displaying list from tail to head:")
+            while current:
+                print(current)
+                current = current._prev
